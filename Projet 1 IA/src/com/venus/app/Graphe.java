@@ -1,6 +1,5 @@
 package com.venus.app;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -11,14 +10,16 @@ import java.util.Map;
 public class Graphe {
     private HashMap<Integer, Noeud> noeuds;
     private HashMap<Couple, Integer> couts;
+    private Noeud[] noeudsFinaux = null;
     private char[][] laby;
 
     public HashMap<Integer, Noeud> getNoeuds() {
         return noeuds;
     }
 
-    public HashMap<Couple, Integer> getCouts() {
-        return couts;
+    public int getCout(int from, int to) {
+        Integer c = couts.get(new Couple(from, to));
+        return c != null ? c : couts.get(new Couple(to, from));
     }
 
     /**
@@ -28,18 +29,20 @@ public class Graphe {
         HashSet<Noeud> succ = new HashSet<>();
         for (Map.Entry<Couple, Integer> entry : couts.entrySet())
             if (entry.getKey().x == id)
-                succ.add(noeuds.get(id));
+                succ.add(noeuds.get(entry.getKey().y));
 
         return succ.toArray(new Noeud[]{});
     }
 
     public Noeud[] getNoeudsFinaux() {
-        HashSet<Noeud> finaux = new HashSet<>();
-        for (Noeud n : noeuds.values())
-            if (n.type == Noeud.TypeNoeud.FINAL)
-                finaux.add(n);
+        if (noeudsFinaux == null) {
+            HashSet<Noeud> finaux = new HashSet<>();
+            for (Noeud n : noeuds.values())
+                if (n.type == Noeud.TypeNoeud.FINAL)
+                    finaux.add(n);
 
-        return finaux.toArray(new Noeud[]{});
+            return finaux.toArray(new Noeud[]{});
+        } else return noeudsFinaux;
     }
 
     public Graphe(char[][] laby, Couple start) throws Exception {
@@ -73,7 +76,7 @@ public class Graphe {
     }
 
     private boolean isOnBounds(Couple c) {
-        return (0 <= c.x && c.x < laby[0].length) && (0 <= c.y && c.y < laby.length) && laby[c.y][c.x] != '0';
+        return (0 <= c.x && c.x < laby[0].length) && (0 <= c.y && c.y < laby.length) && laby[c.y][c.x] != '#';
     }
 
     private void suivreChemin(Noeud from, Couple pos, SensChemin sens, int cout) {
@@ -91,14 +94,14 @@ public class Graphe {
                 if (isOnBounds(getSuivant(pos, sens)))
                     suivreChemin(from, getSuivant(pos, sens), sens, cout + 1);
                 else { // terminaison
-                    Noeud.TypeNoeud type = laby[pos.y][pos.x] == '#' ? Noeud.TypeNoeud.FINAL : Noeud.TypeNoeud.NONE;
+                    Noeud.TypeNoeud type = laby[pos.y][pos.x] == '$' ? Noeud.TypeNoeud.FINAL : Noeud.TypeNoeud.NONE;
                     Noeud n = new Noeud(pos, type);
                     noeuds.put(n.getIdNoeud(), n);
                     couts.put(new Couple(from.getIdNoeud(), n.getIdNoeud()), cout);
                 }
             } else { // Il y a des bifurcations
                 // On ajoute la position comme un noeud et on calcule son coût
-                Noeud.TypeNoeud type = laby[pos.y][pos.x] == '#' ? Noeud.TypeNoeud.FINAL : Noeud.TypeNoeud.NONE;
+                Noeud.TypeNoeud type = laby[pos.y][pos.x] == '$' ? Noeud.TypeNoeud.FINAL : Noeud.TypeNoeud.NONE;
                 Noeud n = new Noeud(pos, type);
                 if (noeuds.containsValue(n)) {
                     noeuds.put(n.getIdNoeud(), n);
@@ -123,6 +126,24 @@ public class Graphe {
             System.out.print(": " + entry.getValue());
             System.out.println();
         }
+    }
+
+    public void print(Couple end) {
+        for (int j = 0; j < laby.length; j++) {
+            for (int i = 0; i < laby[0].length; i++) {
+                if (noeuds.get(0).getCoord().equals(new Couple(i, j)))
+                    System.out.print('A');
+                else if (end.equals(new Couple(i, j)))
+                    System.out.print('E');
+                else System.out.print(laby[j][i]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void printNoeuds() {
+        for (Noeud n : noeuds.values())
+            System.out.println("[" + n.getCoord().x + ", " + n.getCoord().y + "] -> " + n.type);
     }
 
     public enum SensChemin {

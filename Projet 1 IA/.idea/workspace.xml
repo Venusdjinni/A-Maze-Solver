@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bb473c1-d516-4487-9d4c-3c143e4a6fdd" name="Default" comment="">
+    <list default="true" id="0bb473c1-d516-4487-9d4c-3c143e4a6fdd" name="Default" comment="Blabla car">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/labyrinthe.txt" afterPath="$PROJECT_DIR$/labyrinthe.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/venus/app/Couple.java" afterPath="$PROJECT_DIR$/src/com/venus/app/Couple.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/venus/app/Graphe.java" afterPath="$PROJECT_DIR$/src/com/venus/app/Graphe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/venus/app/MainClass.java" afterPath="$PROJECT_DIR$/src/com/venus/app/MainClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/venus/app/Noeud.java" afterPath="$PROJECT_DIR$/src/com/venus/app/Noeud.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/venus/app/NoeudAS.java" afterPath="$PROJECT_DIR$/src/com/venus/app/NoeudAS.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,12 +24,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/venus/app/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="306">
+              <caret line="59" column="95" lean-forward="false" selection-start-line="59" selection-start-column="95" selection-end-line="59" selection-end-column="95" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#convertStreamToString#0;class#MainClass#0" expanded="false" />
                 <element signature="method#convertToArray#0;class#MainClass#0" expanded="false" />
               </folding>
@@ -36,16 +41,12 @@
       <file leaf-file-name="Graphe.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/venus/app/Graphe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+            <state relative-caret-position="326">
+              <caret line="105" column="45" lean-forward="false" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getSuccesseurs#0;class#Graphe#0" expanded="false" />
-                <element signature="method#getNoeudsFinaux#0;class#Graphe#0" expanded="false" />
                 <element signature="method#Graphe#0;class#Graphe#0" expanded="false" />
                 <element signature="method#getSuivant#0;class#Graphe#0" expanded="false" />
-                <element signature="method#isOnBounds#0;class#Graphe#0" expanded="false" />
-                <element signature="method#suivreChemin#0;class#Graphe#0" expanded="false" />
                 <element signature="method#print#0;class#Graphe#0" expanded="false" />
                 <element signature="class#SensChemin#0;class#Graphe#0" expanded="false" />
               </folding>
@@ -56,32 +57,11 @@
       <file leaf-file-name="Couple.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/venus/app/Couple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Noeud.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/venus/app/Noeud.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoeudAS.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/venus/app/NoeudAS.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+            <state relative-caret-position="358">
+              <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
               <folding>
-                <element signature="e#376#377#0" expanded="true" />
-                <element signature="e#409#410#0" expanded="true" />
-                <element signature="method#calculeH#0;class#NoeudAS#0" expanded="false" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,6 +83,9 @@
       <find>Duo</find>
       <find>'</find>
       <find>final</find>
+      <find>'#</find>
+      <find>S</find>
+      <find>E</find>
     </findStrings>
     <replaceStrings>
       <replace>Couple</replace>
@@ -120,11 +103,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/venus/app/TypeNoeud.java" />
-        <option value="$PROJECT_DIR$/src/com/venus/app/Couple.java" />
         <option value="$PROJECT_DIR$/src/com/venus/app/Noeud.java" />
-        <option value="$PROJECT_DIR$/src/com/venus/app/MainClass.java" />
-        <option value="$PROJECT_DIR$/src/com/venus/app/Graphe.java" />
+        <option value="$PROJECT_DIR$/src/com/venus/app/Couple.java" />
         <option value="$PROJECT_DIR$/src/com/venus/app/NoeudAS.java" />
+        <option value="$PROJECT_DIR$/src/com/venus/app/Graphe.java" />
+        <option value="$PROJECT_DIR$/src/com/venus/app/MainClass.java" />
       </list>
     </option>
   </component>
@@ -448,22 +431,30 @@
       <option name="project" value="LOCAL" />
       <updated>1510561185178</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Blabla car">
+      <created>1510562587147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1510562587148</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5357711" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.64193547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -475,13 +466,12 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50397456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -495,7 +485,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -509,6 +499,7 @@
         <state relative-caret-position="486">
           <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#convertStreamToString#0;class#MainClass#0" expanded="false" />
             <element signature="method#convertToArray#0;class#MainClass#0" expanded="false" />
           </folding>
@@ -521,12 +512,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getSuccesseurs#0;class#Graphe#0" expanded="false" />
-            <element signature="method#getNoeudsFinaux#0;class#Graphe#0" expanded="false" />
             <element signature="method#Graphe#0;class#Graphe#0" expanded="false" />
             <element signature="method#getSuivant#0;class#Graphe#0" expanded="false" />
-            <element signature="method#isOnBounds#0;class#Graphe#0" expanded="false" />
-            <element signature="method#suivreChemin#0;class#Graphe#0" expanded="false" />
             <element signature="method#print#0;class#Graphe#0" expanded="false" />
             <element signature="class#SensChemin#0;class#Graphe#0" expanded="false" />
           </folding>
@@ -537,7 +524,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -545,7 +535,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -554,6 +547,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#convertStreamToString#0;class#MainClass#0" expanded="false" />
             <element signature="method#convertToArray#0;class#MainClass#0" expanded="false" />
           </folding>
@@ -566,12 +560,8 @@
           <caret line="13" column="46" lean-forward="false" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getSuccesseurs#0;class#Graphe#0" expanded="false" />
-            <element signature="method#getNoeudsFinaux#0;class#Graphe#0" expanded="false" />
             <element signature="method#Graphe#0;class#Graphe#0" expanded="false" />
             <element signature="method#getSuivant#0;class#Graphe#0" expanded="false" />
-            <element signature="method#isOnBounds#0;class#Graphe#0" expanded="false" />
-            <element signature="method#suivreChemin#0;class#Graphe#0" expanded="false" />
             <element signature="method#print#0;class#Graphe#0" expanded="false" />
             <element signature="class#SensChemin#0;class#Graphe#0" expanded="false" />
           </folding>
@@ -582,7 +572,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -590,65 +583,83 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/venus/app/TypeNoeud.java" />
     <entry file="file://$PROJECT_DIR$/src/com/venus/app/D.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/venus/app/MainClass.java">
+    <entry file="file://$PROJECT_DIR$/src/com/venus/app/NoeudAS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="218">
           <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
-            <element signature="method#convertStreamToString#0;class#MainClass#0" expanded="false" />
-            <element signature="method#convertToArray#0;class#MainClass#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="method#calculeH#0;class#NoeudAS#0" expanded="false" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/venus/app/Graphe.java">
+    <entry file="file://$PROJECT_DIR$/src/com/venus/app/Noeud.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        <state relative-caret-position="52">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getSuccesseurs#0;class#Graphe#0" expanded="false" />
-            <element signature="method#getNoeudsFinaux#0;class#Graphe#0" expanded="false" />
-            <element signature="method#Graphe#0;class#Graphe#0" expanded="false" />
-            <element signature="method#getSuivant#0;class#Graphe#0" expanded="false" />
-            <element signature="method#isOnBounds#0;class#Graphe#0" expanded="false" />
-            <element signature="method#suivreChemin#0;class#Graphe#0" expanded="false" />
-            <element signature="method#print#0;class#Graphe#0" expanded="false" />
-            <element signature="class#SensChemin#0;class#Graphe#0" expanded="false" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/venus/app/Couple.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/venus/app/Noeud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/venus/app/NoeudAS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+        <state relative-caret-position="358">
+          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
           <folding>
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#409#410#0" expanded="true" />
-            <element signature="method#calculeH#0;class#NoeudAS#0" expanded="false" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/venus/app/Graphe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="105" column="45" lean-forward="false" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Graphe#0;class#Graphe#0" expanded="false" />
+            <element signature="method#getSuivant#0;class#Graphe#0" expanded="false" />
+            <element signature="method#print#0;class#Graphe#0" expanded="false" />
+            <element signature="class#SensChemin#0;class#Graphe#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labyrinthe.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/venus/app/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="59" column="95" lean-forward="false" selection-start-line="59" selection-start-column="95" selection-end-line="59" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#convertStreamToString#0;class#MainClass#0" expanded="false" />
+            <element signature="method#convertToArray#0;class#MainClass#0" expanded="false" />
           </folding>
         </state>
       </provider>

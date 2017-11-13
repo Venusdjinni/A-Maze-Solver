@@ -19,6 +19,11 @@ public class Couple implements Cloneable {
         return (o instanceof Couple) && (this.x == ((Couple)o).x) && (this.y == ((Couple)o).y);
     }
 
+    @Override
+    public int hashCode() {
+        return this.x + this.y;
+    }
+
     public void copy(Couple d) {
         this.x = d.x;
         this.y = d.y;

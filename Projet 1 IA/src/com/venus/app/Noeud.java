@@ -8,6 +8,8 @@ public class Noeud {
     int idNoeud;
     protected Couple coord;
     protected TypeNoeud type;
+
+    protected Noeud() {}
     
     public Noeud(Couple c) {
         idNoeud = id;
