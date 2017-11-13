@@ -27,9 +27,19 @@ public class Graphe {
     public Noeud[] getSuccesseurs(int id) {
         HashSet<Noeud> succ = new HashSet<>();
         for (Map.Entry<Couple, Integer> entry : couts.entrySet())
-            if (entry.getKey().x == id) succ.add(noeuds.get(id));
+            if (entry.getKey().x == id)
+                succ.add(noeuds.get(id));
 
         return succ.toArray(new Noeud[]{});
+    }
+
+    public Noeud[] getNoeudsFinaux() {
+        HashSet<Noeud> finaux = new HashSet<>();
+        for (Noeud n : noeuds.values())
+            if (n.type == Noeud.TypeNoeud.FINAL)
+                finaux.add(n);
+
+        return finaux.toArray(new Noeud[]{});
     }
 
     public Graphe(char[][] laby, Couple start) throws Exception {
