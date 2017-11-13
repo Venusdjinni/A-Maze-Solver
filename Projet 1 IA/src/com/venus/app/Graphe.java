@@ -1,6 +1,8 @@
 package com.venus.app;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -10,6 +12,25 @@ public class Graphe {
     private HashMap<Integer, Noeud> noeuds;
     private HashMap<Couple, Integer> couts;
     private char[][] laby;
+
+    public HashMap<Integer, Noeud> getNoeuds() {
+        return noeuds;
+    }
+
+    public HashMap<Couple, Integer> getCouts() {
+        return couts;
+    }
+
+    /**
+     *  retourne la liste des successeurs du noeud d'id @id
+     */
+    public Noeud[] getSuccesseurs(int id) {
+        HashSet<Noeud> succ = new HashSet<>();
+        for (Map.Entry<Couple, Integer> entry : couts.entrySet())
+            if (entry.getKey().x == id) succ.add(noeuds.get(id));
+
+        return succ.toArray(new Noeud[]{});
+    }
 
     public Graphe(char[][] laby, Couple start) throws Exception {
         // On cree un nouveau noeuds à partir des parametres
@@ -42,7 +63,7 @@ public class Graphe {
     }
 
     private boolean isOnBounds(Couple c) {
-        return (0 <= c.x && c.x < laby[0].length) && (0 <= c.y && c.y < laby.length) && laby[c.y][c.x] == '1';
+        return (0 <= c.x && c.x < laby[0].length) && (0 <= c.y && c.y < laby.length) && laby[c.y][c.x] != '0';
     }
 
     private void suivreChemin(Noeud from, Couple pos, SensChemin sens, int cout) {
@@ -89,7 +110,7 @@ public class Graphe {
             System.out.print(" [" + noeuds.get(entry.getKey().x).coord.x + ", " + noeuds.get(entry.getKey().x).coord.y + "] ");
             System.out.print("->");
             System.out.print(" [" + noeuds.get(entry.getKey().y).coord.x + ", " + noeuds.get(entry.getKey().y).coord.y + "] ");
-            System.out.print(" : " + entry.getValue());
+            System.out.print(": " + entry.getValue());
             System.out.println();
         }
     }
