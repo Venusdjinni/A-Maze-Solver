@@ -1,8 +1,8 @@
 package com.venus.app;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Created by arnold on 08/11/17.
@@ -15,7 +15,11 @@ import java.util.HashSet;
  */
 public class MainClass {
     public static void main(String[] args) {
-        File f = new File("labyrinthe.txt");
+        if (args.length == 0 || args[0].isEmpty()) {
+            System.out.println("Passez le chemin du fichier en argument console!");
+            return;
+        }
+        File f = new File(args[0]);
         BufferedInputStream is = null;
         Couple start = null;
         Graphe graphe = null;
@@ -35,7 +39,7 @@ public class MainClass {
 
             /* Application de l'algorithme A* */
             HashSet<NoeudAS> opened = new HashSet<>(), closed = new HashSet<>();
-            ArrayList<Noeud> parcours = new ArrayList<>();
+            Stack<Noeud> parcours = new Stack<>();
             /* 1 */
             opened.add((NoeudAS) graphe.getNoeud(0));
 
@@ -50,10 +54,14 @@ public class MainClass {
                 }
                 opened.remove(min);
                 closed.add(min);
-                parcours.add(min);
+
+                /*while (!parcours.empty() && !Arrays.asList(graphe.getSuccesseurs(parcours.peek().getIdNoeud())).contains(min))
+                    parcours.pop();*/
+                parcours.push(min);
+
                 /* 4 */
                 if (min.getType().equals(Noeud.TypeNoeud.FINAL)) {
-                    graphe.print(parcours);
+                    //graphe.print(parcours);
                     System.out.println("\nChemin suivi:");
                     for (Noeud n : parcours)
                         System.out.print("[" + n.getCoord().x + ", " + n.getCoord().y + "]->");

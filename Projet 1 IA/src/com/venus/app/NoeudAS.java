@@ -31,9 +31,11 @@ public class NoeudAS extends Noeud implements Comparable<NoeudAS> {
     }
 
     private void calculeH(Noeud[] noeuds) {
-        h = disManhattan(noeuds[0].coord);
-        for (int i = 1; i < noeuds.length; i++)
-            h = Math.min(h, disManhattan(noeuds[i].coord));
+        if (noeuds != null && noeuds.length > 0) {
+            h = disManhattan(noeuds[0].coord);
+            for (int i = 1; i < noeuds.length; i++)
+                h = Math.min(h, disManhattan(noeuds[i].coord));
+        }
     }
 
     private int disManhattan(Couple c) {
