@@ -53,11 +53,11 @@ public class MainClass {
                 parcours.add(min);
                 /* 4 */
                 if (min.getType().equals(Noeud.TypeNoeud.FINAL)) {
-                    //graphe.print();
+                    graphe.print(parcours);
+                    System.out.println("\nChemin suivi:");
                     for (Noeud n : parcours)
                         System.out.print("[" + n.getCoord().x + ", " + n.getCoord().y + "]->");
-                    System.out.println();
-                    graphe.print(parcours);
+                    System.out.println("\n");
                     break;
                 } else {
                     /* 5 */
