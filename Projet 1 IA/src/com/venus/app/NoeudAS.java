@@ -12,6 +12,7 @@ public class NoeudAS extends Noeud implements Comparable<NoeudAS> {
         this.coord = n.coord;
         this.type = n.type;
         calculeH(finaux);
+        if (this.type != TypeNoeud.INITIAL) g = -1;
     }
 
     public int getF() {
@@ -24,14 +25,15 @@ public class NoeudAS extends Noeud implements Comparable<NoeudAS> {
 
     public boolean setG(int gPrime) {
         // On actualise g, puis on le retourne
-        boolean b = gPrime < g;
+        boolean b = g < 0 || gPrime < g;
         if (b) g = gPrime;
         return b;
     }
 
     private void calculeH(Noeud[] noeuds) {
-        for (Noeud n : noeuds)
-            h = Math.min(h, disManhattan(n.coord));
+        h = disManhattan(noeuds[0].coord);
+        for (int i = 1; i < noeuds.length; i++)
+            h = Math.min(h, disManhattan(noeuds[i].coord));
     }
 
     private int disManhattan(Couple c) {
@@ -40,6 +42,8 @@ public class NoeudAS extends Noeud implements Comparable<NoeudAS> {
 
     @Override
     public int compareTo(NoeudAS noeudAS) {
-        return this.getF() - noeudAS.getF();
+        int c = this.getF() - noeudAS.getF();
+        // Si deux points ont la même valeur de f, on compare sur h
+        return c == 0 ? (this.h - noeudAS.h) : c;
     }
 }

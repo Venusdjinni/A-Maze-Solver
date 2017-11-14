@@ -1,8 +1,6 @@
 package com.venus.app;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by arnold on 08/11/17.
@@ -13,15 +11,6 @@ public class Graphe {
     private Noeud[] noeudsFinaux = null;
     private char[][] laby;
 
-    public HashMap<Integer, Noeud> getNoeuds() {
-        return noeuds;
-    }
-
-    public int getCout(int from, int to) {
-        Integer c = couts.get(new Couple(from, to));
-        return c != null ? c : couts.get(new Couple(to, from));
-    }
-
     /**
      *  retourne la liste des successeurs du noeud d'id @id
      */
@@ -30,6 +19,8 @@ public class Graphe {
         for (Map.Entry<Couple, Integer> entry : couts.entrySet())
             if (entry.getKey().x == id)
                 succ.add(noeuds.get(entry.getKey().y));
+            else if (entry.getKey().y == id)
+                succ.add(noeuds.get(entry.getKey().x));
 
         return succ.toArray(new Noeud[]{});
     }
@@ -41,8 +32,9 @@ public class Graphe {
                 if (n.type == Noeud.TypeNoeud.FINAL)
                     finaux.add(n);
 
-            return finaux.toArray(new Noeud[]{});
-        } else return noeudsFinaux;
+            noeudsFinaux = finaux.toArray(new Noeud[]{});
+        }
+        return noeudsFinaux;
     }
 
     public Graphe(char[][] laby, Couple start) throws Exception {
@@ -62,6 +54,7 @@ public class Graphe {
         noeuds.put(n.getIdNoeud(), n);
         for (SensChemin sens : SensChemin.values())
             suivreChemin(n, getSuivant(start, sens), sens, 1);
+        buildNoeudASs();
     }
 
     private Couple getSuivant(Couple c, SensChemin sens) {
@@ -103,12 +96,18 @@ public class Graphe {
                 // On ajoute la position comme un noeud et on calcule son coût
                 Noeud.TypeNoeud type = laby[pos.y][pos.x] == '$' ? Noeud.TypeNoeud.FINAL : Noeud.TypeNoeud.NONE;
                 Noeud n = new Noeud(pos, type);
+
                 if (noeuds.containsValue(n)) {
-                    noeuds.put(n.getIdNoeud(), n);
-                    couts.put(new Couple(from.getIdNoeud(), n.getIdNoeud()), cout);
+                    int id = 0;
+                    for (Noeud no : noeuds.values())
+                        if (no.equals(n)) id = no.idNoeud;
+
+                    if (!couts.containsKey(new Couple(from.getIdNoeud(), id)) && !couts.containsKey(new Couple(id, from.getIdNoeud())))
+                        couts.put(new Couple(from.getIdNoeud(), id), cout);
                 } else {
                     noeuds.put(n.getIdNoeud(), n);
-                    couts.put(new Couple(from.getIdNoeud(), n.getIdNoeud()), cout);
+                    if (!couts.containsKey(new Couple(from.getIdNoeud(), n.getIdNoeud())) && !couts.containsKey(new Couple(n.getIdNoeud(), from.getIdNoeud())))
+                        couts.put(new Couple(from.getIdNoeud(), n.getIdNoeud()), cout);
                     // On relance sur les nouvelles routes
                     suivreChemin(n, getSuivant(pos, sens), sens, 1);
                     for (SensChemin s : sens.notOpposites())
@@ -120,7 +119,7 @@ public class Graphe {
 
     public void print() {
         for (Map.Entry<Couple, Integer> entry : couts.entrySet()) {
-            System.out.print(" [" + noeuds.get(entry.getKey().x).coord.x + ", " + noeuds.get(entry.getKey().x).coord.y + "] ");
+            System.out.print("[" + noeuds.get(entry.getKey().x).coord.x + ", " + noeuds.get(entry.getKey().x).coord.y + "] ");
             System.out.print("->");
             System.out.print(" [" + noeuds.get(entry.getKey().y).coord.x + ", " + noeuds.get(entry.getKey().y).coord.y + "] ");
             System.out.print(": " + entry.getValue());
@@ -132,10 +131,45 @@ public class Graphe {
         for (int j = 0; j < laby.length; j++) {
             for (int i = 0; i < laby[0].length; i++) {
                 if (noeuds.get(0).getCoord().equals(new Couple(i, j)))
-                    System.out.print('A');
+                    System.out.print('D');
                 else if (end.equals(new Couple(i, j)))
-                    System.out.print('E');
+                    System.out.print('F');
                 else System.out.print(laby[j][i]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void print(ArrayList<Noeud> parcours) {
+        ArrayList<Couple> points = new ArrayList<>();
+        for (int i = 0; i < parcours.size() - 1; i++) {
+            if (parcours.get(i).getCoord().x == parcours.get(i + 1).getCoord().x) {
+                for (int j = Math.min(parcours.get(i).getCoord().y, parcours.get(i + 1).getCoord().y); j <= Math.max(parcours.get(i).getCoord().y, parcours.get(i + 1).getCoord().y); j++)
+                    points.add(new Couple(parcours.get(i).getCoord().x, j));
+            } else if (parcours.get(i).getCoord().y == parcours.get(i + 1).getCoord().y) {
+                for (int j = Math.min(parcours.get(i).getCoord().x, parcours.get(i + 1).getCoord().x); j <= Math.max(parcours.get(i).getCoord().x, parcours.get(i + 1).getCoord().x); j++)
+                    points.add(new Couple(j, parcours.get(i).getCoord().y));
+            }
+        }
+
+        for (int j = 0; j < laby.length; j++) {
+            for (int i = 0; i < laby[0].length; i++) {
+                if (noeuds.get(0).getCoord().equals(new Couple(i, j)))
+                    System.out.print('D');
+                else if (parcours.get(parcours.size() - 1).getCoord().equals(new Couple(i, j)))
+                    System.out.print('F');
+                else {
+                    boolean flag = false;
+                    for (Couple c : points)
+                        if (c.equals(new Couple(i, j))) {
+                            points.remove(c);
+                            System.out.print('=');
+                            flag = true;
+                            break;
+                        }
+                    if (!flag)
+                        System.out.print(laby[j][i]);
+                }
             }
             System.out.println();
         }
@@ -144,6 +178,20 @@ public class Graphe {
     public void printNoeuds() {
         for (Noeud n : noeuds.values())
             System.out.println("[" + n.getCoord().x + ", " + n.getCoord().y + "] -> " + n.type);
+    }
+
+    public Noeud getNoeud(int id) {
+        return noeuds.get(id);
+    }
+
+    public int getCout(int from, int to) {
+        Integer c = couts.get(new Couple(from, to));
+        return c != null ? c : couts.get(new Couple(to, from));
+    }
+
+    private void  buildNoeudASs() {
+        for (Map.Entry<Integer, Noeud> entry : noeuds.entrySet())
+            entry.setValue(new NoeudAS(entry.getValue(), getNoeudsFinaux()));
     }
 
     public enum SensChemin {

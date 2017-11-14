@@ -32,14 +32,12 @@ public class MainClass {
 
             // On transforme le labyrinthe en graphe
             graphe = new Graphe(al.toArray(new char[][]{}), start);
-            graphe.printNoeuds();
 
             /* Application de l'algorithme A* */
             HashSet<NoeudAS> opened = new HashSet<>(), closed = new HashSet<>();
             ArrayList<Noeud> parcours = new ArrayList<>();
-            parcours.add(graphe.getNoeuds().get(0));
             /* 1 */
-            opened.add(new NoeudAS(graphe.getNoeuds().get(0), graphe.getNoeudsFinaux()));
+            opened.add((NoeudAS) graphe.getNoeud(0));
 
             /* 2 */
             while (!opened.isEmpty()) {
@@ -52,25 +50,24 @@ public class MainClass {
                 }
                 opened.remove(min);
                 closed.add(min);
+                parcours.add(min);
                 /* 4 */
                 if (min.getType().equals(Noeud.TypeNoeud.FINAL)) {
-                    //System.out.println("noeud = (" + min.getCoord().x + ", " + min.getCoord().y + ")");
-                    /*parcours.add(min);
+                    //graphe.print();
                     for (Noeud n : parcours)
                         System.out.print("[" + n.getCoord().x + ", " + n.getCoord().y + "]->");
-                    System.out.println();*/
-                    graphe.print(min.getCoord());
+                    System.out.println();
+                    graphe.print(parcours);
                     break;
                 } else {
                     /* 5 */
                     ArrayList<NoeudAS> succ = new ArrayList<>();
                     for (Noeud n : graphe.getSuccesseurs(min.getIdNoeud()))
-                        succ.add(new NoeudAS(n, graphe.getNoeudsFinaux()));
+                        succ.add((NoeudAS) n);
                     if (!succ.isEmpty()) {
                         for (NoeudAS s : succ) {
                             if (!opened.contains(s) && !closed.contains(s)) {
                                 opened.add(s);
-                                parcours.add(s);
                             }
                             /* 6 */
                             if (s.setG(min.getG() + graphe.getCout(min.getIdNoeud(), s.getIdNoeud()))) {
