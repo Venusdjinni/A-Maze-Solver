@@ -84,9 +84,9 @@ public class Graphe {
                 }
             }
             if (isStraight) { // La ligne est droite, on continue d'avancer
-                if (isOnBounds(getSuivant(pos, sens)))
+                if (isOnBounds(getSuivant(pos, sens)) && laby[pos.y][pos.x] != '$') {
                     suivreChemin(from, getSuivant(pos, sens), sens, cout + 1);
-                else { // terminaison
+                } else { // terminaison
                     Noeud.TypeNoeud type = laby[pos.y][pos.x] == '$' ? Noeud.TypeNoeud.FINAL : Noeud.TypeNoeud.NONE;
                     Noeud n = new Noeud(pos, type);
                     noeuds.put(n.getIdNoeud(), n);
@@ -140,7 +140,7 @@ public class Graphe {
         }
     }
 
-    public void print(ArrayList<Noeud> parcours) {
+    public void print(List<Noeud> parcours) {
         ArrayList<Couple> points = new ArrayList<>();
         for (int i = 0; i < parcours.size() - 1; i++) {
             if (parcours.get(i).getCoord().x == parcours.get(i + 1).getCoord().x) {
@@ -176,8 +176,20 @@ public class Graphe {
     }
 
     public void printNoeuds() {
-        for (Noeud n : noeuds.values())
-            System.out.println("[" + n.getCoord().x + ", " + n.getCoord().y + "] -> " + n.type);
+        for (int j = 0; j < laby.length; j++) {
+            for (int i = 0; i < laby[0].length; i++) {
+                boolean flag = false;
+                for (Noeud n : noeuds.values())
+                    if (n.getCoord().equals(new Couple(i, j))) {
+                        System.out.print('*');
+                        flag = true;
+                        break;
+                    }
+                if (!flag)
+                    System.out.print(laby[j][i]);
+            }
+            System.out.println();
+        }
     }
 
     public Noeud getNoeud(int id) {

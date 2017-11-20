@@ -1,7 +1,6 @@
 package com.venus.app;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -15,6 +14,7 @@ import java.util.*;
  */
 public class MainClass {
     public static void main(String[] args) {
+        args = new String[]{"labyrinthe.lab"};
         if (args.length == 0 || args[0].isEmpty()) {
             System.out.println("Passez le chemin du fichier en argument console!");
             return;
@@ -55,13 +55,19 @@ public class MainClass {
                 opened.remove(min);
                 closed.add(min);
 
-                /*while (!parcours.empty() && !Arrays.asList(graphe.getSuccesseurs(parcours.peek().getIdNoeud())).contains(min))
-                    parcours.pop();*/
+                /*int i = 0;
+                while (i < parcours.size() && !Arrays.asList(graphe.getSuccesseurs(parcours.get(i).getIdNoeud())).contains(min))
+                    i++;
+                if (i < parcours.size()) {
+                    int l = parcours.size();
+                    for (i += 1; i < l; i++)
+                        parcours.pop();
+                }*/
                 parcours.push(min);
 
                 /* 4 */
                 if (min.getType().equals(Noeud.TypeNoeud.FINAL)) {
-                    //graphe.print(parcours);
+                    graphe.print(parcours);
                     System.out.println("\nChemin suivi:");
                     for (Noeud n : parcours)
                         System.out.print("[" + n.getCoord().x + ", " + n.getCoord().y + "]->");
