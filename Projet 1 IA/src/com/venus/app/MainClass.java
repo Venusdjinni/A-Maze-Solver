@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class MainClass {
     public static void main(String[] args) {
-        args = new String[]{"labyrinthe.lab"};
         if (args.length == 0 || args[0].isEmpty()) {
             System.out.println("Passez le chemin du fichier en argument console!");
             return;
@@ -55,14 +54,14 @@ public class MainClass {
                 opened.remove(min);
                 closed.add(min);
 
-                /*int i = 0;
+                int i = 0;
                 while (i < parcours.size() && !Arrays.asList(graphe.getSuccesseurs(parcours.get(i).getIdNoeud())).contains(min))
                     i++;
                 if (i < parcours.size()) {
                     int l = parcours.size();
                     for (i += 1; i < l; i++)
                         parcours.pop();
-                }*/
+                }
                 parcours.push(min);
 
                 /* 4 */
