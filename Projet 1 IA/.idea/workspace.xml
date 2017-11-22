@@ -12,7 +12,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Projet 1 IA/com/venus/app/MainClass.class" afterPath="$PROJECT_DIR$/out/production/Projet 1 IA/com/venus/app/MainClass.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/venus/app/MainClass.java" afterPath="$PROJECT_DIR$/src/com/venus/app/MainClass.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -530,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511176426554</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Enfin terminé">
+      <created>1511377174792</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1511377174792</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -574,9 +580,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Blabla car" />
     <MESSAGE value="Il ne manque plus qu'à afficher le chemin suivi par l'algorithme" />
-    <MESSAGE value="Enfin terminé" />
     <MESSAGE value="Enfin terminé 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enfin terminé 1" />
+    <MESSAGE value="Enfin terminé" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enfin terminé" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
